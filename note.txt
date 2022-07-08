@@ -1,0 +1,42 @@
+testify documentation :
+godoc.org/github.com/stretchr/testify
+
+
+// in this course used mock
+the mock basically used as datas faker
+in this course the mock implemented by these dirs
+    |-entity
+    |--/category.go
+    |-repostitory
+    |--/category_repository_mock.go
+    |-service
+    |--/category_service_test.go
+
+// BENCHMARK : 
+benchmark is a mechanism to count how fast the code performance
+in implementing the benchmark it's just like implementing the test
+the required to build benchmark in go
+1. the function named required "Benchmark" in the begining of function name e.g: BenchmarkHelloWorld
+2. the parameter of the function require (b *testing.B)
+3. no return value
+4. in the name of the file required "_test" e.g: hello_world_test.go
+
+running unitTest : 
+1. to run a specific unitTest //the named given, it will run as prefix
+    -> go test -v -run=<prefixUnitTest>
+2. to run all unitTest on the path or package
+    -> go test -v
+4. to running whole the unitTest
+    -> go test -v -run=./...
+
+running benchmark : 
+1. to run a specific benchmark //the named given, it will run as prefix
+    -> go test -v -bench <prefixBenchmarkName>
+2. to run all benchmark on the path or package //it will also run the unit test
+    -> go test -v -bench=. 
+    -> go test -v -bench .
+3. run benchmark without unit test we can disable the unit test like the following code Below
+    -> go test -v -run=<UnnamedPrefixUnitTestFunction> -bench=.
+4. to running whole the benchmark
+    -> go test -v -bench=. ./...
+    -> go test -v -bench . ./...
